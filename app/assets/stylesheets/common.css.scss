@@ -1,0 +1,64 @@
+$navbar-default-bg: yellowgreen;
+
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+
+#logo {
+  float: left;
+  font-size: 1.7em;
+  color: white;
+  text-transform: uppercase;
+  letter-spacing: -1px;
+  font-weight: bold;
+}
+
+#logo:hover {
+  color: #fff;
+  text-decoration: none;
+}
+
+.center {
+  text-align: center;
+}
+
+.center lead {
+  font-size: 3em;
+  color: red;
+  font-family: cursive;
+  margin-bottom: 3rem 
+}
+
+.jumbotron {
+  background-image: asset-url('cover.png');
+  height: 400px;
+  background-size: cover;
+}
+
+.btn {
+  background-color: yellowgreen;
+  border-radius: 10%;
+}
+
+.footer {
+  font-size: 1.4em;
+} 
+
+.footer small {
+  float: left;
+  color: yellowgreen;
+}
+
+.footer ul li {
+  font-size: 1.4em;
+  float: right;
+  list-style: none;
+}
+
+footer small a {
+  color: blue;
+}
+
+.footer small a:visited {
+  color: red;
+}
