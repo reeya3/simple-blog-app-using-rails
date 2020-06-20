@@ -24,13 +24,13 @@ class ArticlesController < ApplicationController
   # POST /articles
   # POST /articles.json
   def create
-    #render plain: params[:article].inspect
+    # render plain: params[:article].inspect
     # @article = Article.new(article_params)
-    #@article.save
-    #redirect_to article_path(@article)
+    # @article.save
+    # redirect_to article_path(@article)
     @article = Article.new(article_params)
     if @article.save
-      flash[:notice] = "Article was successfully created"
+      flash[:notice] = 'Article was successfully created'
       redirect_to article_path(@article)
     else
       render 'new'
@@ -40,8 +40,10 @@ class ArticlesController < ApplicationController
   # PATCH/PUT /articles/1
   # PATCH/PUT /articles/1.json
   def update
+
+    @article = Article.find(params[:id])
     if @article.update(article_params)
-      flash[:notice] = "Article was successfully updated"
+      flash[:notice] = 'Article was successfully created'
       redirect_to article_path(@article)
     else
       render 'edit'
@@ -69,4 +71,4 @@ class ArticlesController < ApplicationController
   def article_params
     params.require(:article).permit(:title, :description)
   end
-   
+
