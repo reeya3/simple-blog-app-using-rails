@@ -6,7 +6,7 @@ class ArticlesController < ApplicationController
   # GET /articles
   # GET /articles.json
   def index
-    @articles = Article.all
+    @articles = Article.paginate(page: params[:page], per_page: 5)
   end
 
   # GET /articles/1
@@ -29,8 +29,9 @@ class ArticlesController < ApplicationController
     # @article.save
     # redirect_to article_path(@article)
     @article = Article.new(article_params)
+    @article.user = User.first
     if @article.save
-      flash[:notice] = 'Article was successfully created'
+      flash[:sucess] = 'Article was successfully created'
       redirect_to article_path(@article)
     else
       render 'new'
@@ -40,10 +41,9 @@ class ArticlesController < ApplicationController
   # PATCH/PUT /articles/1
   # PATCH/PUT /articles/1.json
   def update
-
     @article = Article.find(params[:id])
     if @article.update(article_params)
-      flash[:notice] = 'Article was successfully created'
+      flash[:sucess] = 'Article was successfully created'
       redirect_to article_path(@article)
     else
       render 'edit'
@@ -54,7 +54,7 @@ class ArticlesController < ApplicationController
   # DELETE /articles/1.json
   def destroy
      @article.destroy
-     flash[:notice] = "Article was successfully destroyed"
+     flash[:sucess] = "Article was successfully destroyed"
      redirect_to articles_path
    
     end
